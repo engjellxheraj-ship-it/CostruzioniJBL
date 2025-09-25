@@ -1,0 +1,1021 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Costruzioni JBL - Idraulica Professionale</title>
+    <meta name="description" content="Costruzioni JBL offre soluzioni idrauliche complete a Pordenone. Ristrutturazione bagno, sostituzione caldaia, interventi di emergenza.">
+    
+    <!-- Stili CSS -->
+    <style>
+        /* Reset e stili base */
+        :root {
+            --blu-primario: #0066cc;
+            --blu-scuro: #004c99;
+            --arancione: #ff6600;
+            --arancione-scuro: #e65c00;
+            --grigio-chiaro: #f5f5f5;
+            --grigio-medio: #e0e0e0;
+            --grigio-scuro: #333333;
+            --bianco: #ffffff;
+            --ombra: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: var(--grigio-scuro);
+            background-color: var(--bianco);
+        }
+        
+        h1, h2, h3, h4 {
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+        }
+        
+        h2 {
+            font-size: 2rem;
+            color: var(--blu-primario);
+        }
+        
+        h3 {
+            font-size: 1.5rem;
+        }
+        
+        p {
+            margin-bottom: 1rem;
+        }
+        
+        a {
+            text-decoration: none;
+            color: var(--blu-primario);
+            transition: color 0.3s;
+        }
+        
+        a:hover {
+            color: var(--arancione);
+        }
+        
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            background-color: var(--arancione);
+            color: var(--bianco);
+            border: none;
+            border-radius: 4px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            text-align: center;
+        }
+        
+        .btn:hover {
+            background-color: var(--arancione-scuro);
+            color: var(--bianco);
+        }
+        
+        .btn-blu {
+            background-color: var(--blu-primario);
+        }
+        
+        .btn-blu:hover {
+            background-color: var(--blu-scuro);
+        }
+        
+        .section {
+            padding: 4rem 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .section-title h2 {
+            position: relative;
+            display: inline-block;
+            padding-bottom: 0.5rem;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--arancione);
+        }
+        
+        /* Header e navigazione */
+        header {
+            background-color: var(--bianco);
+            box-shadow: var(--ombra);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo-circle {
+            width: 50px;
+            height: 50px;
+            background-color: var(--blu-primario);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--bianco);
+            font-weight: bold;
+            font-size: 1.2rem;
+            position: relative;
+            margin-right: 10px;
+        }
+        
+        .logo-circle::after {
+            content: '💧';
+            position: absolute;
+            bottom: -5px;
+            right: -5px;
+            font-size: 0.8rem;
+        }
+        
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--grigio-scuro);
+        }
+        
+        .logo-text span {
+            color: var(--blu-primario);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav li {
+            margin-left: 1.5rem;
+        }
+        
+        nav a {
+            color: var(--grigio-scuro);
+            font-weight: 500;
+            padding: 0.5rem 0;
+            position: relative;
+        }
+        
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--arancione);
+            transition: width 0.3s;
+        }
+        
+        nav a:hover::after,
+        nav a.active::after {
+            width: 100%;
+        }
+        
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--grigio-scuro);
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
+            color: var(--bianco);
+            text-align: center;
+            padding: 10rem 0 6rem;
+            margin-top: 70px;
+        }
+        
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        /* Servizi Section */
+        .servizi {
+            background-color: var(--grigio-chiaro);
+        }
+        
+        .servizi-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        
+        .servizio-card {
+            background-color: var(--bianco);
+            border-radius: 8px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: var(--ombra);
+            transition: transform 0.3s;
+        }
+        
+        .servizio-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .servizio-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: var(--blu-primario);
+        }
+        
+        /* Testimonianze Section */
+        .testimonianze {
+            background-color: var(--bianco);
+        }
+        
+        .testimonianza {
+            background-color: var(--grigio-chiaro);
+            padding: 2rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            position: relative;
+        }
+        
+        .testimonianza::before {
+            content: '"';
+            font-size: 4rem;
+            color: var(--arancione);
+            position: absolute;
+            top: -10px;
+            left: 10px;
+            line-height: 1;
+        }
+        
+        .testimonianza-autore {
+            font-weight: bold;
+            margin-top: 1rem;
+            color: var(--blu-primario);
+        }
+        
+        /* Chi Siamo Section */
+        .chi-siamo {
+            background-color: var(--grigio-chiaro);
+        }
+        
+        .chi-siamo-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+        
+        .dati-azienda {
+            background-color: var(--bianco);
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: var(--ombra);
+        }
+        
+        .dati-azienda h3 {
+            color: var(--blu-primario);
+            margin-bottom: 1.5rem;
+        }
+        
+        .dati-azienda p {
+            margin-bottom: 0.5rem;
+        }
+        
+        /* Cosa Offriamo Section */
+        .servizi-dettaglio {
+            background-color: var(--bianco);
+        }
+        
+        .servizi-lista {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .servizio-dettaglio {
+            background-color: var(--grigio-chiaro);
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: var(--ombra);
+        }
+        
+        .servizio-dettaglio h3 {
+            color: var(--blu-primario);
+            display: flex;
+            align-items: center;
+        }
+        
+        .servizio-dettaglio h3::before {
+            content: '✓';
+            color: var(--arancione);
+            font-weight: bold;
+            margin-right: 0.5rem;
+        }
+        
+        /* Preventivo Section */
+        .preventivo {
+            background-color: var(--grigio-chiaro);
+        }
+        
+        .form-container {
+            max-width: 700px;
+            margin: 0 auto;
+            background-color: var(--bianco);
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: var(--ombra);
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+        }
+        
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid var(--grigio-medio);
+            border-radius: 4px;
+            font-family: inherit;
+        }
+        
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--blu-primario);
+        }
+        
+        .form-group.required label::after {
+            content: ' *';
+            color: var(--arancione);
+        }
+        
+        .checkbox-group {
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .checkbox-group input {
+            width: auto;
+            margin-right: 0.5rem;
+            margin-top: 0.25rem;
+        }
+        
+        .error {
+            color: var(--arancione);
+            font-size: 0.875rem;
+            margin-top: 0.25rem;
+            display: none;
+        }
+        
+        /* Contatti Section */
+        .contatti {
+            background-color: var(--bianco);
+        }
+        
+        .contatti-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+        
+        .info-contatti {
+            background-color: var(--grigio-chiaro);
+            padding: 2rem;
+            border-radius: 8px;
+        }
+        
+        .info-contatti h3 {
+            color: var(--blu-primario);
+            margin-bottom: 1.5rem;
+        }
+        
+        .info-item {
+            display: flex;
+            margin-bottom: 1rem;
+        }
+        
+        .info-icon {
+            margin-right: 1rem;
+            color: var(--arancione);
+            font-size: 1.2rem;
+            min-width: 20px;
+        }
+        
+        .orari {
+            margin-top: 2rem;
+        }
+        
+        .orari table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        .orari td {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid var(--grigio-medio);
+        }
+        
+        .orari td:last-child {
+            text-align: right;
+        }
+        
+        .mappa {
+            height: 400px;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        .mappa iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--grigio-scuro);
+            color: var(--bianco);
+            padding: 3rem 0 1rem;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-col h3 {
+            color: var(--bianco);
+            margin-bottom: 1.5rem;
+            font-size: 1.2rem;
+        }
+        
+        .footer-col ul {
+            list-style: none;
+        }
+        
+        .footer-col li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .footer-col a {
+            color: var(--grigio-medio);
+        }
+        
+        .footer-col a:hover {
+            color: var(--arancione);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            transition: background-color 0.3s;
+        }
+        
+        .social-links a:hover {
+            background-color: var(--arancione);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            color: var(--grigio-medio);
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .chi-siamo-content,
+            .contatti-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .mappa {
+                height: 300px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .hamburger {
+                display: block;
+            }
+            
+            nav ul {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 70px);
+                background-color: var(--bianco);
+                flex-direction: column;
+                align-items: center;
+                padding-top: 2rem;
+                transition: left 0.3s;
+            }
+            
+            nav ul.active {
+                left: 0;
+            }
+            
+            nav li {
+                margin: 1rem 0;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .section {
+                padding: 3rem 0;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            h2 {
+                font-size: 1.5rem;
+            }
+            
+            .hero {
+                padding: 8rem 0 4rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <div class="logo-circle">JBL</div>
+                <div class="logo-text">Costruzioni <span>JBL</span></div>
+            </div>
+            
+            <button class="hamburger" id="hamburger">☰</button>
+            
+            <nav>
+                <ul id="nav-menu">
+                    <li><a href="#home" class="active">Home</a></li>
+                    <li><a href="#chi-siamo">Chi Siamo</a></li>
+                    <li><a href="#cosa-offriamo">Cosa Offriamo</a></li>
+                    <li><a href="#preventivo">Preventivo</a></li>
+                    <li><a href="#contatti">Contatti</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <h1>Costruzioni JBL - Idraulica Professionale</h1>
+            <p>Soluzioni idrauliche complete dal 2023</p>
+            <a href="#preventivo" class="btn">Richiedi Preventivo Gratuito</a>
+        </div>
+    </section>
+
+    <!-- Servizi in Evidenza -->
+    <section class="servizi section">
+        <div class="container">
+            <div class="section-title">
+                <h2>I Nostri Servizi</h2>
+            </div>
+            
+            <div class="servizi-grid">
+                <div class="servizio-card">
+                    <div class="servizio-icon">🚿</div>
+                    <h3>Ristrutturazione Bagno</h3>
+                    <p>Soluzioni chiavi in mano per trasformare il tuo bagno in un ambiente funzionale ed elegante.</p>
+                </div>
+                
+                <div class="servizio-card">
+                    <div class="servizio-icon">🔥</div>
+                    <h3>Sostituzione Caldaia</h3>
+                    <p>Installazione di caldaie moderne ed efficienti per garantire comfort e risparmio energetico.</p>
+                </div>
+                
+                <div class="servizio-card">
+                    <div class="servizio-icon">🛁</div>
+                    <h3>Sostituzione Vasca</h3>
+                    <p>Rinnovo completo della vasca da bagno con materiali di alta qualità e design moderno.</p>
+                </div>
+                
+                <div class="servizio-card">
+                    <div class="servizio-icon">🔧</div>
+                    <h3>Manutenzione</h3>
+                    <p>Interventi di manutenzione ordinaria e straordinaria per garantire il perfetto funzionamento.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Chi Siamo -->
+    <section id="chi-siamo" class="chi-siamo section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Chi Siamo</h2>
+            </div>
+            
+            <div class="chi-siamo-content">
+                <div>
+                    <h3>La Nostra Mission</h3>
+                    <p>Costruzioni JBL è un'azienda specializzata in servizi edili ed idraulici con sede a Pordenone. La nostra missione è fornire soluzioni idrauliche complete, affidabili e di alta qualità, garantendo soddisfazione e tranquillità ai nostri clienti.</p>
+                    <p>Con anni di esperienza nel settore, ci distinguiamo per professionalità, competenza e attenzione ai dettagli. Ogni progetto viene seguito con cura, dalla progettazione alla realizzazione, per garantire risultati eccellenti.</p>
+                </div>
+                
+                <div class="dati-azienda">
+                    <h3>Dati Aziendali</h3>
+                    <p><strong>Ragione Sociale:</strong> Costruzioni JBL</p>
+                    <p><strong>Indirizzo:</strong> Viale Venezia 65, 33170 Pordenone (PN)</p>
+                    <p><strong>Email:</strong> costruzionijbl@gmail.com</p>
+                    <p><strong>PEC:</strong> costruzionijbl@pec.it</p>
+                    <p><strong>P.IVA:</strong> 1952040937</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cosa Offriamo -->
+    <section id="cosa-offriamo" class="servizi-dettaglio section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Cosa Offriamo</h2>
+            </div>
+            
+            <div class="servizi-lista">
+                <div class="servizio-dettaglio">
+                    <h3>Ristrutturazione Bagno Chiavi in Mano</h3>
+                    <p>Progettazione e realizzazione completa del tuo bagno, dalla demolizione alla finitura, con materiali di qualità e design personalizzato.</p>
+                </div>
+                
+                <div class="servizio-dettaglio">
+                    <h3>Sostituzione Caldaia</h3>
+                    <p>Installazione di caldaie a condensazione di ultima generazione per massima efficienza e risparmio energetico.</p>
+                </div>
+                
+                <div class="servizio-dettaglio">
+                    <h3>Sostituzione Vasca</h3>
+                    <p>Rimozione della vecchia vasca e installazione di modelli moderni, con finiture di pregio e massima funzionalità.</p>
+                </div>
+                
+                <div class="servizio-dettaglio">
+                    <h3>Manutenzione Ordinaria e Straordinaria</h3>
+                    <p>Servizi di manutenzione preventiva e correttiva per impianti idraulici, con interventi rapidi e risolutivi.</p>
+                </div>
+                
+                <div class="servizio-dettaglio">
+                    <h3>Interventi di Emergenza</h3>
+                    <p>Pronto intervento per situazioni di emergenza come perdite d'acqua, guasti improvvisi e altri problemi urgenti.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Richiesta Preventivo -->
+    <section id="preventivo" class="preventivo section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Richiedi un Preventivo Gratuito</h2>
+            </div>
+            
+            <div class="form-container">
+               <form action="https://formspree.io/f/mrbybara"
+  method="POST"
+>
+                    <div class="form-group required">
+                        <label for="nome">Nome e Cognome</label>
+                        <input type="text" id="nome" name="nome" required>
+                        <div class="error" id="nome-error">Inserisci il tuo nome e cognome</div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email">
+                    </div>
+                    
+                    <div class="form-group required">
+                        <label for="telefono">Telefono</label>
+                        <input type="tel" id="telefono" name="telefono" required>
+                        <div class="error" id="telefono-error">Inserisci il tuo numero di telefono</div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="tipo-lavoro">Tipo di Lavoro Richiesto</label>
+                        <select id="tipo-lavoro" name="tipo-lavoro">
+                            <option value="">Seleziona un servizio</option>
+                            <option value="ristrutturazione-bagno">Ristrutturazione Bagno</option>
+                            <option value="sostituzione-caldaia">Sostituzione Caldaia</option>
+                            <option value="sostituzione-vasca">Sostituzione Vasca</option>
+                            <option value="manutenzione">Manutenzione</option>
+                            <option value="emergenza">Intervento di Emergenza</option>
+                            <option value="altro">Altro</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="descrizione">Descrizione del Lavoro</label>
+                        <textarea id="descrizione" name="descrizione" rows="5" placeholder="Descrivi in dettaglio il lavoro che desideri realizzare..."></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="privacy" name="privacy" required>
+                            <label for="privacy">Acconsento al trattamento dei miei dati personali ai sensi del GDPR</label>
+                        </div>
+                        <div class="error" id="privacy-error">Devi accettare l'informativa sulla privacy</div>
+                    </div>
+                    
+                    <button type="submit" class="btn">Invia Richiesta</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contatti -->
+    <section id="contatti" class="contatti section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Contatti</h2>
+            </div>
+            
+            <div class="contatti-content">
+                <div class="info-contatti">
+                    <h3>Informazioni di Contatto</h3>
+                    
+                    <div class="info-item">
+                        <div class="info-icon">📍</div>
+                        <div>
+                            <strong>Indirizzo</strong><br>
+                            Viale Venezia 65, 33170 Pordenone (PN)
+                        </div>
+                    </div>
+                    
+                    <div class="info-item">
+                        <div class="info-icon">📞</div>
+                        <div>
+                            <strong>Telefono</strong><br>
+                            <a href="tel:+393779561093">+39 377 956 1093</a>
+                        </div>
+                    </div>
+                    
+                    <div class="info-item">
+                        <div class="info-icon">✉️</div>
+                        <div>
+                            <strong>Email</strong><br>
+                            <a href="mailto:costruzionijbl@gmail.com">costruzionijbl@gmail.com</a>
+                        </div>
+                    </div>
+                    
+                    <div class="info-item">
+                        <div class="info-icon">📧</div>
+                        <div>
+                            <strong>PEC</strong><br>
+                            <a href="mailto:costruzionijbl@pec.it">costruzionijbl@pec.it</a>
+                        </div>
+                    </div>
+                    
+                    <div class="orari">
+                        <h3>Orari di Ufficio</h3>
+                        <table>
+                            <tr>
+                                <td>Lunedì - Venerdì</td>
+                                <td>8:00 - 18:00</td>
+                            </tr>
+                            <tr>
+                                <td>Sabato</td>
+                                <td>9:00 - 12:00</td>
+                            </tr>
+                            <tr>
+                                <td>Domenica</td>
+                                <td>Chiuso</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                
+                <div class="mappa">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2766.036945468649!2d12.657311315593224!3d45.95687987910778!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47795fc6b4c5f8b5%3A0x9d9d9d9d9d9d9d9d!2sViale%20Venezia%2C%2065%2C%2033170%20Pordenone%20PN!5e0!3m2!1sit!2sit!4v1620000000000!5m2!1sit!2sit" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <h3>Costruzioni JBL</h3>
+                    <p>Soluzioni idrauliche complete e professionali a Pordenone e provincia.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook">f</a>
+                        <a href="#" aria-label="Instagram">ig</a>
+                        <a href="#" aria-label="LinkedIn">in</a>
+                    </div>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Link Veloci</h3>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#chi-siamo">Chi Siamo</a></li>
+                        <li><a href="#cosa-offriamo">Cosa Offriamo</a></li>
+                        <li><a href="#preventivo">Preventivo</a></li>
+                        <li><a href="#contatti">Contatti</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Contatti</h3>
+                    <ul>
+                        <li>Viale Venezia 65, 33170 Pordenone (PN)</li>
+                        <li>Email: costruzionijbl@gmail.com</li>
+                        <li>PEC: costruzionijbl@pec.it</li>
+                        <li>P.IVA: 1952040937</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Costruzioni JBL. Tutti i diritti riservati.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Menu hamburger per mobile
+        document.addEventListener('DOMContentLoaded', function() {
+            const hamburger = document.getElementById('hamburger');
+            const navMenu = document.getElementById('nav-menu');
+            
+            hamburger.addEventListener('click', function() {
+                navMenu.classList.toggle('active');
+            });
+            
+            // Chiudi il menu quando si clicca su un link
+            const navLinks = document.querySelectorAll('nav a');
+            navLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    navMenu.classList.remove('active');
+                });
+            });
+            
+            // Validazione form preventivo
+            const preventivoForm = document.getElementById('preventivo-form');
+            
+            preventivoForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                let isValid = true;
+                
+                // Validazione nome
+                const nome = document.getElementById('nome');
+                const nomeError = document.getElementById('nome-error');
+                if (nome.value.trim() === '') {
+                    nomeError.style.display = 'block';
+                    isValid = false;
+                } else {
+                    nomeError.style.display = 'none';
+                }
+                
+                // Validazione telefono
+                const telefono = document.getElementById('telefono');
+                const telefonoError = document.getElementById('telefono-error');
+                if (telefono.value.trim() === '') {
+                    telefonoError.style.display = 'block';
+                    isValid = false;
+                } else {
+                    telefonoError.style.display = 'none';
+                }
+                
+                // Validazione privacy
+                const privacy = document.getElementById('privacy');
+                const privacyError = document.getElementById('privacy-error');
+                if (!privacy.checked) {
+                    privacyError.style.display = 'block';
+                    isValid = false;
+                } else {
+                    privacyError.style.display = 'none';
+                }
+                
+                if (isValid) {
+                    // Simulazione invio form
+                    alert('Grazie per la tua richiesta! Ti contatteremo al più presto.');
+                    preventivoForm.reset();
+                }
+            });
+            
+            // Evidenziazione link di navigazione attivo durante lo scroll
+            window.addEventListener('scroll', function() {
+                const sections = document.querySelectorAll('section');
+                const navLinks = document.querySelectorAll('nav a');
+                
+                let current = '';
+                
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.clientHeight;
+                    
+                    if (pageYOffset >= sectionTop - 100) {
+                        current = section.getAttribute('id');
+                    }
+                });
+                
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === '#' + current) {
+                        link.classList.add('active');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
